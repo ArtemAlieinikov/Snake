@@ -10,11 +10,18 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Dot dot1 = new Dot(10,15,'*');
-            dot1.Draw();
+            Console.SetBufferSize(80, 25);
+            HorisontalLine topLine = new HorisontalLine(0, 79, 0, '+');
+            HorisontalLine bottomLine = new HorisontalLine(0, 79, 23, '+');
+            VerticalLine rightLine = new VerticalLine(0, 23, 0, '+');
+            VerticalLine leftLine = new VerticalLine(0, 23, 79, '+');
 
-            Dot dot2 = new Dot(5, 25, '*');
-            dot2.Draw();
+            leftLine.Draw();
+            rightLine.Draw();
+            topLine.Draw();
+            bottomLine.Draw();
+
+            Console.ReadLine();
         }
     }
 }
