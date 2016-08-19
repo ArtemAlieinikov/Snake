@@ -11,11 +11,6 @@ namespace Snake
     {
         protected List<Dot> dotList;
 
-        protected Figure()
-        {
-            dotList = new List<Dot>();
-        }
-
         public void Draw()
         {
             foreach(Dot currentDot in dotList)
