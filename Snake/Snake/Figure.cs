@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
+    //Base class for Lines and Snake
     class Figure
     {
         protected List<Dot> dotList;
