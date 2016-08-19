@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
+    //This class used for building vertical lines
     class VerticalLine : Figure
     {
         public VerticalLine(int firstDot, int lastDot, int x, char symbol)
