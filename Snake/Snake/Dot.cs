@@ -19,6 +19,36 @@ namespace Snake
             this.symbol = symbol;
         }
 
+        public Dot(Dot item)
+        {
+            x = item.x;
+            y = item.y;
+            symbol = item.symbol;
+        }
+
+        internal void Move(int sizeOfStep, Direction direct)
+        {
+            if(direct == Direction.UP)
+            {
+                this.y += sizeOfStep;
+            }
+
+            if(direct == Direction.DOWN)
+            {
+                this.y -= sizeOfStep;
+            }
+
+            if (direct == Direction.RIGHT)
+            {
+                this.x += sizeOfStep;
+            }
+
+            if (direct == Direction.LEFT)
+            {
+                this.x -= sizeOfStep;
+            }
+        }
+
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
