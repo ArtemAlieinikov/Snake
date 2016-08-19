@@ -10,8 +10,11 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
-            Console.ReadLine();
+            Dot dot1 = new Dot(10,15,'*');
+            dot1.Draw();
+
+            Dot dot2 = new Dot(5, 25, '*');
+            dot2.Draw();
         }
     }
 }
