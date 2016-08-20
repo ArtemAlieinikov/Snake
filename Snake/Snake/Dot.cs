@@ -26,7 +26,7 @@ namespace Snake
             symbol = item.symbol;
         }
 
-        internal void Move(int sizeOfStep, Direction direct)
+        public void Move(int sizeOfStep, Direction direct)
         {
             if(direct == Direction.UP)
             {
@@ -47,6 +47,12 @@ namespace Snake
             {
                 this.x -= sizeOfStep;
             }
+        }
+
+        public void Clear()
+        {
+            this.symbol= ' ';
+            this.Draw();
         }
 
         public void Draw()
