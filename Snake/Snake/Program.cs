@@ -22,18 +22,31 @@ namespace Snake
             topLine.Draw();
             bottomLine.Draw();
 
-            Dot snakeTail = new Dot(10, 15, '*');
-            Snake mySnake = new Snake(snakeTail, 5, Direction.RIGHT);
+            Dot snakeTail = new Dot(10, 12, '*');
+            Snake mySnake = new Snake(snakeTail, 1, Direction.RIGHT);
+            FoodCreator foodCreator = new FoodCreator(80, 25, '$');
+            Dot food = foodCreator.CreateFood();
 
+            food.Draw();
             mySnake.Draw();
 
-            for (int i = 0; i < 5; i++)
+            while(true)
             {
                 mySnake.Move();
-                Thread.Sleep(250);
-            }
+                Thread.Sleep(1000);
 
-            Console.ReadLine();
+                if(mySnake.IsEat(food))
+                {
+                    food = foodCreator.CreateFood();
+                    food.Draw();
+                }
+
+                if(Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey(true);
+                    mySnake.KeyPushReaction(key.Key);
+                }
+            }
         }
     }
 }
