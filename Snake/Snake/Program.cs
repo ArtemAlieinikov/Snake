@@ -21,6 +21,10 @@ namespace Snake
             topLine.Draw();
             bottomLine.Draw();
 
+            Dot snakeTail = new Dot(10, 15, '*');
+            Snake mySnake = new Snake(snakeTail, 5, Direction.RIGHT);
+            mySnake.Draw();
+
             Console.ReadLine();
         }
     }
