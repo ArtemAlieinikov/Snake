@@ -8,9 +8,9 @@ namespace Snake
 {
     class Dot
     {
-        private int x;
-        private int y;
-        private char symbol;
+        protected int x;
+        protected int y;
+        protected internal char symbol;
 
         public Dot(int x, int y, char symbol)
         {
@@ -30,12 +30,12 @@ namespace Snake
         {
             if(direct == Direction.UP)
             {
-                this.y += sizeOfStep;
+                this.y -= sizeOfStep;
             }
 
             if(direct == Direction.DOWN)
             {
-                this.y -= sizeOfStep;
+                this.y += sizeOfStep;
             }
 
             if (direct == Direction.RIGHT)
@@ -59,6 +59,11 @@ namespace Snake
         {
             Console.SetCursorPosition(x, y);
             Console.Write(symbol);
+        }
+
+        public bool IsHit(Dot food)
+        {
+            return ((this.x == food.x) && (this.y == food.y));
         }
     }
 }
