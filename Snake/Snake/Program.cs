@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Snake
@@ -23,7 +24,14 @@ namespace Snake
 
             Dot snakeTail = new Dot(10, 15, '*');
             Snake mySnake = new Snake(snakeTail, 5, Direction.RIGHT);
+
             mySnake.Draw();
+
+            for (int i = 0; i < 5; i++)
+            {
+                mySnake.Move();
+                Thread.Sleep(250);
+            }
 
             Console.ReadLine();
         }
