@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace Snake
 {
@@ -10,11 +10,13 @@ namespace Snake
     {
         Direction directionOfMoving;
         Dot nextHeadDot;
+        int snakeSpeed;
 
-        public Snake(Dot tail, int length, Direction direct)
+        public Snake(Dot tail, int length, Direction direct, int speed)
         {
             length = length <= 1 ? 2 : length;
             directionOfMoving = direct;
+            snakeSpeed = speed;
 
             for(int i = 0; i < length; i++)
             {
@@ -26,6 +28,8 @@ namespace Snake
 
         public void Move()
         {
+            Thread.Sleep(snakeSpeed);
+
             Dot tail = dotList.First();
             dotList.Remove(tail);
 
@@ -81,18 +85,42 @@ namespace Snake
             }
         }
 
-        public bool IsEat(Dot food)
+        public bool IsEating(Dot food)
         {
             if(nextHeadDot.IsHit(food))
             {
                 food.symbol = nextHeadDot.symbol;
-                dotList.Add(food);
+                food.Move(1, directionOfMoving);
+
+                dotList.Insert(0, food);
+
                 return true;
             }
             else
             {
                 return false;
             }
+        }
+
+        public bool IsCollision(GameField walls)
+        {
+            List<Dot> snakeWithoutHead = this.dotList.Take(this.dotList.Count - 1).ToList();
+            if (snakeWithoutHead.Contains(nextHeadDot))
+                return true;
+
+            foreach(Line gameFieldLine in walls.fence)
+            {
+                if (gameFieldLine.dotList.Contains(nextHeadDot))
+                    return true;
+            }
+
+            foreach (Line gameFieldLine in walls.barrier)
+            {
+                if (gameFieldLine.dotList.Contains(nextHeadDot))
+                    return true;
+            }
+
+            return false;
         }
     }
 }
