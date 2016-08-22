@@ -9,7 +9,7 @@ namespace Snake
     //Base class for Lines and Snake
     class Figure
     {
-        protected List<Dot> dotList;
+        public List<Dot> dotList;
 
         protected Figure()
         {
