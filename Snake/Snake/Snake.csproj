@@ -41,15 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Line.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="Dot.cs" />
     <Compile Include="Figure.cs" />
     <Compile Include="FoodCreator.cs" />
-    <Compile Include="HorisontalLine.cs" />
+    <Compile Include="GameField.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Snake.cs" />
-    <Compile Include="VerticalLine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
