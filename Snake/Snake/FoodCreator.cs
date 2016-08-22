@@ -14,11 +14,19 @@ namespace Snake
             : base(mapWidth, mapHeight, symbol)
         { }
 
-        public Dot CreateFood()
+        public Dot CreateFood(Snake Snake)
         {
-            int rX = rand.Next(2, x - 2);
-            int rY = rand.Next(2, y - 2);
-            return new Dot(rX, rY, symbol);
+            while(true)
+            {
+                int rX = rand.Next(2, x - 2);
+                int rY = rand.Next(2, y - 2);
+                Dot newFood = new Dot(rX, rY, symbol);
+
+                if(!Snake.dotList.Contains(newFood))
+                {
+                    return newFood;
+                }
+            }
         }
     }
 }
