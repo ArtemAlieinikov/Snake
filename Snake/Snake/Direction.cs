@@ -13,4 +13,10 @@ namespace Snake
         UP,
         DOWN
     }
+
+    enum HorizontalVertical : byte
+    {
+        HORIZONTAL,
+        VERTICAL
+    }
 }
