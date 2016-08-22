@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class Dot
+    class Dot : IEquatable<Dot>
     {
         protected int x;
         protected int y;
@@ -57,13 +57,23 @@ namespace Snake
 
         public void Draw()
         {
-            Console.SetCursorPosition(x, y);
-            Console.Write(symbol);
+                Console.SetCursorPosition(x, y);
+                Console.Write(symbol);
+        }
+
+        public bool Equals(Dot item)
+        {
+            return ((this.x == item.x) && (this.y == item.y));
         }
 
         public bool IsHit(Dot food)
         {
             return ((this.x == food.x) && (this.y == food.y));
+        }
+
+        public override string ToString()
+        {
+            return String.Format(this.x + " " + this.y + " " + this.symbol);
         }
     }
 }
