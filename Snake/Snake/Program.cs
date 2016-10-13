@@ -51,7 +51,7 @@ namespace Snake
                 }
             }
 
-            Console.WriteLine();
+            Console.ReadLine();
         }
     }
 }
