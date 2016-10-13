@@ -50,6 +50,8 @@ namespace Snake
                     mySnake.KeyPushReaction(key.Key);
                 }
             }
+
+            Console.WriteLine();
         }
     }
 }
